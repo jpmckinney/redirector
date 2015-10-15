@@ -11,6 +11,7 @@ DATA = {
 
 get '/*' do
   config = DATA[request.host]
+  logger.info request.fullpath
   if config
     if config[:root_to] && request.fullpath == '/'
       path = config[:root_to]
